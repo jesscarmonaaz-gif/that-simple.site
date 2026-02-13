@@ -34,7 +34,7 @@ const es = {
       description: "Gestión y reservas para profesionales independientes",
       features: ["Agenda inteligente", "Página de reservas pública", "Gestión de clientes", "Pagos integrados"],
       cta: "Conocer Simple.Booking",
-      price: "$18/mes",
+      price: "$32/mes",
     },
     order: {
       name: "Simple.Order",
@@ -252,7 +252,7 @@ const es = {
       "Sin planes confusos. Sin costos ocultos. Todo incluido por un precio que tiene sentido.",
     plan: {
       name: "Simple.Booking",
-      price: "18",
+      price: "32",
       currency: "$",
       period: "/mes",
       description:

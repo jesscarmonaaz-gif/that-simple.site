@@ -34,7 +34,7 @@ const en = {
       description: "Booking management for independent professionals",
       features: ["Smart calendar", "Public booking page", "Client management", "Integrated payments"],
       cta: "Discover Simple.Booking",
-      price: "$18/mo",
+      price: "$32/mo",
     },
     order: {
       name: "Simple.Order",
@@ -252,7 +252,7 @@ const en = {
       "No confusing plans. No hidden fees. Everything included for a price that makes sense.",
     plan: {
       name: "Simple.Booking",
-      price: "18",
+      price: "32",
       currency: "$",
       period: "/mo",
       description:

@@ -91,8 +91,8 @@ export default function OrderHero() {
                   <Image
                     src="/images/order-dashboard.png"
                     alt="Simple.Order - Panel de Control"
-                    width={1506}
-                    height={825}
+                    width={3008}
+                    height={1454}
                     className="w-full h-auto"
                     priority
                   />
@@ -119,8 +119,8 @@ export default function OrderHero() {
                     <Image
                       src="/images/order-pedidos.png"
                       alt="Simple.Order - Gestión de Pedidos"
-                      width={1507}
-                      height={826}
+                      width={3002}
+                      height={1444}
                       className="w-full h-auto"
                     />
                   </div>

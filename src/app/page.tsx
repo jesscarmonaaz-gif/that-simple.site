@@ -179,11 +179,11 @@ export default function Home() {
                     ))}
                   </ul>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <span className="text-sm font-semibold text-gray-400">{t.siteProducts.booking.price}</span>
                     <Link
                       href="/booking"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dark text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dark text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md whitespace-nowrap"
                     >
                       {t.siteProducts.booking.cta}
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -248,11 +248,11 @@ export default function Home() {
                     ))}
                   </ul>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <span className="text-sm font-semibold text-gray-400">{t.siteProducts.order.price}</span>
                     <Link
                       href="/order"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dark text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dark text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md whitespace-nowrap"
                     >
                       {t.siteProducts.order.cta}
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

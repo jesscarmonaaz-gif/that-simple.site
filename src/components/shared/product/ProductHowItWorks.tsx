@@ -7,9 +7,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
@@ -22,8 +20,13 @@ const itemVariants = {
   },
 };
 
-export default function BookingHowItWorks() {
+interface ProductHowItWorksProps {
+  product: "booking" | "order";
+}
+
+export default function ProductHowItWorks({ product }: ProductHowItWorksProps) {
   const { t } = useLanguage();
+  const howItWorks = product === "booking" ? t.howItWorks : t.orderHowItWorks;
 
   return (
     <section id="how-it-works" className="py-24 sm:py-32">
@@ -37,14 +40,12 @@ export default function BookingHowItWorks() {
           className="text-center max-w-2xl mx-auto"
         >
           <span className="inline-flex items-center px-3 py-1 bg-accent-50 text-accent-500 text-xs font-medium rounded-full border border-accent-100">
-            {t.howItWorks.badge}
+            {howItWorks.badge}
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 tracking-tight">
-            {t.howItWorks.title}
+            {howItWorks.title}
           </h2>
-          <p className="mt-4 text-gray-500 text-lg">
-            {t.howItWorks.subtitle}
-          </p>
+          <p className="mt-4 text-gray-500 text-lg">{howItWorks.subtitle}</p>
         </motion.div>
 
         {/* Steps */}
@@ -55,24 +56,20 @@ export default function BookingHowItWorks() {
           viewport={{ once: true, margin: "-100px" }}
           className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6"
         >
-          {t.howItWorks.steps.map((step, i) => (
+          {howItWorks.steps.map((step, i) => (
             <motion.div key={i} variants={itemVariants} className="relative">
               {/* Connector line for desktop */}
-              {i < t.howItWorks.steps.length - 1 && (
+              {i < howItWorks.steps.length - 1 && (
                 <div className="hidden lg:block absolute top-8 left-[60%] w-[calc(100%-20%)] h-px bg-gradient-to-r from-accent/30 to-accent/10" />
               )}
 
               <div className="relative text-center lg:text-left">
                 {/* Step number */}
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-50 mb-4">
-                  <span className="text-2xl font-display font-bold text-accent">
-                    {step.step}
-                  </span>
+                  <span className="text-2xl font-display font-bold text-accent">{step.step}</span>
                 </div>
 
-                <h3 className="text-lg font-display font-semibold text-gray-900">
-                  {step.title}
-                </h3>
+                <h3 className="text-lg font-display font-semibold text-gray-900">{step.title}</h3>
                 <p className="mt-2 text-sm text-gray-500 leading-relaxed max-w-xs mx-auto lg:mx-0">
                   {step.description}
                 </p>

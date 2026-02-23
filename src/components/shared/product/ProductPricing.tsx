@@ -2,10 +2,16 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import { CTA_URL } from "@/lib/links";
 
-export default function BookingPricing() {
+interface ProductPricingProps {
+  product: "booking" | "order";
+  ctaUrl: string;
+}
+
+export default function ProductPricing({ product, ctaUrl }: ProductPricingProps) {
   const { t } = useLanguage();
+  const pricing = product === "booking" ? t.pricing : t.orderPricing;
+  const badgeLabel = product === "booking" ? "Simple.Booking" : "Early Access";
 
   return (
     <section id="pricing" className="py-24 sm:py-32 bg-gray-50">
@@ -19,14 +25,14 @@ export default function BookingPricing() {
           className="text-center max-w-2xl mx-auto"
         >
           <span className="inline-flex items-center px-3 py-1 bg-accent-50 text-accent-500 text-xs font-medium rounded-full border border-accent-100">
-            {t.pricing.badge}
+            {pricing.badge}
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 tracking-tight">
-            {t.pricing.title}
+            {pricing.title}
             <br />
-            <span className="text-accent">{t.pricing.titleHighlight}</span>
+            <span className="text-accent">{pricing.titleHighlight}</span>
           </h2>
-          <p className="mt-4 text-gray-500 text-lg">{t.pricing.subtitle}</p>
+          <p className="mt-4 text-gray-500 text-lg">{pricing.subtitle}</p>
         </motion.div>
 
         {/* Pricing Card */}
@@ -48,26 +54,20 @@ export default function BookingPricing() {
                     clipRule="evenodd"
                   />
                 </svg>
-                Simple.Booking
+                {badgeLabel}
               </span>
             </div>
 
             {/* Price */}
             <div className="text-center pt-4">
               <div className="flex items-baseline justify-center gap-1">
-                <span className="text-2xl font-semibold text-gray-400">
-                  {t.pricing.plan.currency}
-                </span>
+                <span className="text-2xl font-semibold text-gray-400">{pricing.plan.currency}</span>
                 <span className="text-6xl sm:text-7xl font-display font-extrabold text-gray-900 tracking-tight">
-                  {t.pricing.plan.price}
+                  {pricing.plan.price}
                 </span>
-                <span className="text-lg text-gray-400 font-medium">
-                  {t.pricing.plan.period}
-                </span>
+                <span className="text-lg text-gray-400 font-medium">{pricing.plan.period}</span>
               </div>
-              <p className="mt-2 text-gray-500">
-                {t.pricing.plan.description}
-              </p>
+              <p className="mt-2 text-gray-500">{pricing.plan.description}</p>
             </div>
 
             {/* Divider */}
@@ -75,7 +75,7 @@ export default function BookingPricing() {
 
             {/* Features */}
             <ul className="space-y-4">
-              {t.pricing.plan.features.map((feature, i) => (
+              {pricing.plan.features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-5 h-5 mt-0.5 bg-accent-50 rounded-full flex items-center justify-center">
                     <svg
@@ -85,11 +85,7 @@ export default function BookingPricing() {
                       stroke="currentColor"
                       strokeWidth={3}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <span className="text-sm text-gray-700">{feature}</span>
@@ -100,14 +96,12 @@ export default function BookingPricing() {
             {/* CTA */}
             <div className="mt-8">
               <a
-                href={CTA_URL}
+                href={ctaUrl}
                 className="w-full py-4 px-6 bg-accent hover:bg-accent-dark text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 text-base inline-flex items-center justify-center"
               >
-                {t.pricing.plan.cta}
+                {pricing.plan.cta}
               </a>
-              <p className="mt-3 text-center text-xs text-gray-400">
-                {t.pricing.plan.trial}
-              </p>
+              <p className="mt-3 text-center text-xs text-gray-400">{pricing.plan.trial}</p>
             </div>
           </div>
 
@@ -132,7 +126,7 @@ export default function BookingPricing() {
                 d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
               />
             </svg>
-            {t.pricing.guarantee}
+            {pricing.guarantee}
           </motion.p>
         </motion.div>
       </div>

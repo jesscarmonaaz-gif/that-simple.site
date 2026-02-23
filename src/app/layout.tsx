@@ -18,6 +18,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://that-simple.site"),
   title:
     "That Simple — Soluciones digitales simples para pequeños y medianos negocios",
   description:
@@ -33,11 +34,36 @@ export const metadata: Metadata = {
     "gestión",
     "profesionales independientes",
   ],
+  alternates: {
+    canonical: "https://that-simple.site",
+    languages: {
+      es: "https://that-simple.site",
+      pt: "https://that-simple.site",
+      en: "https://that-simple.site",
+    },
+  },
   openGraph: {
     title: "That Simple — Herramientas simples para negocios reales",
     description:
       "Soluciones digitales simples, potentes y accesibles para pequeños y medianos negocios.",
+    url: "https://that-simple.site",
+    siteName: "That Simple",
     type: "website",
+    images: [
+      {
+        url: "/images/order-dashboard.png",
+        width: 1200,
+        height: 630,
+        alt: "That Simple — Panel de gestión",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "That Simple — Herramientas simples para negocios reales",
+    description:
+      "Soluciones digitales simples, potentes y accesibles para pequeños y medianos negocios.",
+    images: ["/images/order-dashboard.png"],
   },
 };
 

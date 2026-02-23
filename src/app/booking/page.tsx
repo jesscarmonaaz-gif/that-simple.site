@@ -1,23 +1,24 @@
 "use client";
 
-import BookingNavbar from "@/components/booking/BookingNavbar";
-import BookingHero from "@/components/booking/BookingHero";
-import BookingFeatures from "@/components/booking/BookingFeatures";
-import BookingHowItWorks from "@/components/booking/BookingHowItWorks";
-import BookingPricing from "@/components/booking/BookingPricing";
-import BookingFooter from "@/components/booking/BookingFooter";
+import ProductNavbar from "@/components/shared/product/ProductNavbar";
+import ProductHero from "@/components/shared/product/ProductHero";
+import ProductFeatures from "@/components/shared/product/ProductFeatures";
+import ProductHowItWorks from "@/components/shared/product/ProductHowItWorks";
+import ProductPricing from "@/components/shared/product/ProductPricing";
+import ProductFooter from "@/components/shared/product/ProductFooter";
+import { CTA_URL } from "@/lib/links";
 
 export default function BookingPage() {
   return (
     <>
-      <BookingNavbar />
+      <ProductNavbar product="booking" ctaUrl={CTA_URL} />
       <main>
-        <BookingHero />
-        <BookingFeatures />
-        <BookingHowItWorks />
-        <BookingPricing />
+        <ProductHero product="booking" ctaUrl={CTA_URL} />
+        <ProductFeatures product="booking" />
+        <ProductHowItWorks product="booking" />
+        <ProductPricing product="booking" ctaUrl={CTA_URL} />
       </main>
-      <BookingFooter />
+      <ProductFooter product="booking" />
     </>
   );
 }

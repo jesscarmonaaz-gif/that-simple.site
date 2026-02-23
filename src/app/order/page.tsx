@@ -1,23 +1,24 @@
 "use client";
 
-import OrderNavbar from "@/components/order/OrderNavbar";
-import OrderHero from "@/components/order/OrderHero";
-import OrderFeatures from "@/components/order/OrderFeatures";
-import OrderHowItWorks from "@/components/order/OrderHowItWorks";
-import OrderPricing from "@/components/order/OrderPricing";
-import OrderFooter from "@/components/order/OrderFooter";
+import ProductNavbar from "@/components/shared/product/ProductNavbar";
+import ProductHero from "@/components/shared/product/ProductHero";
+import ProductFeatures from "@/components/shared/product/ProductFeatures";
+import ProductHowItWorks from "@/components/shared/product/ProductHowItWorks";
+import ProductPricing from "@/components/shared/product/ProductPricing";
+import ProductFooter from "@/components/shared/product/ProductFooter";
+import { ORDER_CTA_URL } from "@/lib/links";
 
 export default function OrderPage() {
   return (
     <>
-      <OrderNavbar />
+      <ProductNavbar product="order" ctaUrl={ORDER_CTA_URL} />
       <main>
-        <OrderHero />
-        <OrderFeatures />
-        <OrderHowItWorks />
-        <OrderPricing />
+        <ProductHero product="order" ctaUrl={ORDER_CTA_URL} />
+        <ProductFeatures product="order" />
+        <ProductHowItWorks product="order" />
+        <ProductPricing product="order" ctaUrl={ORDER_CTA_URL} />
       </main>
-      <OrderFooter />
+      <ProductFooter product="order" />
     </>
   );
 }

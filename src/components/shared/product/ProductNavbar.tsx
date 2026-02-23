@@ -4,17 +4,25 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { locales, localeFlags, type Locale } from "@/i18n";
-import { CTA_URL } from "@/lib/links";
+import Link from "next/link";
 
-export default function BookingNavbar() {
+interface ProductNavbarProps {
+  product: "booking" | "order";
+  ctaUrl: string;
+}
+
+export default function ProductNavbar({ product, ctaUrl }: ProductNavbarProps) {
   const { locale, t, setLocale } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
+  const nav = product === "booking" ? t.nav : t.orderNav;
+  const productSuffix = product === "booking" ? ".Booking" : ".Order";
+
   const navLinks = [
-    { href: "#features", label: t.nav.features },
-    { href: "#how-it-works", label: t.nav.howItWorks },
-    { href: "#pricing", label: t.nav.pricing },
+    { href: "#features", label: nav.features },
+    { href: "#how-it-works", label: nav.howItWorks },
+    { href: "#pricing", label: nav.pricing },
   ];
 
   return (
@@ -28,20 +36,23 @@ export default function BookingNavbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center gap-4">
-            <a href="/booking" className="flex items-center gap-2">
+            <Link href={`/${product}`} className="flex items-center gap-2">
               <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
                 <span className="text-white font-display font-bold text-sm">S</span>
               </div>
               <span className="font-display font-bold text-lg text-gray-900">
-                Simple<span className="text-accent">.Booking</span>
+                Simple<span className="text-accent">{productSuffix}</span>
               </span>
-            </a>
-            <a href="/" className="text-xs text-gray-400 hover:text-accent transition-colors hidden sm:inline-flex items-center gap-1">
+            </Link>
+            <Link
+              href="/"
+              className="text-xs text-gray-400 hover:text-accent transition-colors hidden sm:inline-flex items-center gap-1"
+            >
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               That Simple
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Nav */}
@@ -104,10 +115,10 @@ export default function BookingNavbar() {
 
             {/* CTA Button */}
             <a
-              href={CTA_URL}
+              href={ctaUrl}
               className="inline-flex items-center px-5 py-2.5 bg-accent hover:bg-accent-dark text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
             >
-              {t.nav.cta}
+              {nav.cta}
             </a>
           </div>
 
@@ -138,7 +149,7 @@ export default function BookingNavbar() {
             className="md:hidden border-t border-gray-100 bg-white"
           >
             <div className="px-4 py-4 space-y-3">
-              <a
+              <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-accent py-2 border-b border-gray-100 pb-3 mb-3"
@@ -147,7 +158,7 @@ export default function BookingNavbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
                 That Simple
-              </a>
+              </Link>
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -163,9 +174,7 @@ export default function BookingNavbar() {
                 {locales.map((loc) => (
                   <button
                     key={loc}
-                    onClick={() => {
-                      setLocale(loc as Locale);
-                    }}
+                    onClick={() => setLocale(loc as Locale)}
                     className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                       locale === loc
                         ? "bg-accent text-white"
@@ -177,11 +186,11 @@ export default function BookingNavbar() {
                 ))}
               </div>
               <a
-                href={CTA_URL}
+                href={ctaUrl}
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full text-center px-5 py-3 bg-accent hover:bg-accent-dark text-white text-sm font-semibold rounded-full transition-colors"
               >
-                {t.nav.cta}
+                {nav.cta}
               </a>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@ const es = {
   // ── Site-level (That Simple) ──
   siteNav: {
     products: "Productos",
+    services: "Servicios",
     about: "Sobre TS",
     bookingDesc: "Gestión y reservas para profesionales",
     orderDesc: "Gestión de pedidos y entregas",
@@ -43,10 +44,30 @@ const es = {
       cta: "Conocer Simple.Order",
       price: "$45/mes",
     },
+    custom: {
+      badge: "¿No encuentras lo que buscas?",
+      title: "Necesitas algo diferente.",
+      titleHighlight: "Lo creamos para ti.",
+      subtitle: "¿Tu negocio tiene necesidades específicas que un producto estándar no cubre? Diseñamos y desarrollamos soluciones a medida.",
+      cta: "Hablar sobre mi proyecto",
+    },
   },
   siteFooter: {
     description:
       "Soluciones digitales simples, potentes y accesibles para pequeños y medianos negocios.",
+  },
+  siteContact: {
+    badge: "¿Necesitas algo diferente?",
+    title: "Entra en contacto.",
+    subtitle: "Es posible crear una solución",
+    subtitleHighlight: "simple",
+    subtitleEnd: "para ti.",
+    cta: "Contacto",
+    features: [
+      { icon: "sparkles", title: "A medida", description: "Diseñamos la solución exacta que tu negocio necesita, sin funciones de más ni de menos." },
+      { icon: "bolt", title: "Tecnología simple", description: "Usamos las mismas tecnologías probadas de nuestros productos: rápidas, confiables y fáciles de usar." },
+      { icon: "handshake", title: "Acompañamiento", description: "Desde la idea hasta el lanzamiento, y más allá. Estamos contigo en cada paso." },
+    ],
   },
 
   // ── Simple.Order ──

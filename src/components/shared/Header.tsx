@@ -90,6 +90,13 @@ export default function Header() {
             </div>
 
             <a
+              href="#services"
+              className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            >
+              {t.siteNav.services}
+            </a>
+
+            <a
               href="#about"
               className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
             >
@@ -185,6 +192,13 @@ export default function Header() {
               >
                 Simple.Order
               </Link>
+              <a
+                href="#services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-sm text-gray-600 hover:text-gray-900 py-2"
+              >
+                {t.siteNav.services}
+              </a>
               <a
                 href="#about"
                 onClick={() => setMobileMenuOpen(false)}

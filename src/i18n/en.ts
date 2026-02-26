@@ -2,6 +2,7 @@ const en = {
   // ── Site-level (That Simple) ──
   siteNav: {
     products: "Products",
+    services: "Services",
     about: "About TS",
     bookingDesc: "Booking management for professionals",
     orderDesc: "Order and delivery management",
@@ -43,10 +44,30 @@ const en = {
       cta: "Discover Simple.Order",
       price: "$45/mo",
     },
+    custom: {
+      badge: "Can't find what you need?",
+      title: "Need something different.",
+      titleHighlight: "We'll build it for you.",
+      subtitle: "Does your business have specific needs that a standard product doesn't cover? We design and develop custom solutions.",
+      cta: "Talk about my project",
+    },
   },
   siteFooter: {
     description:
       "Simple, powerful, and affordable digital solutions for small and medium businesses.",
+  },
+  siteContact: {
+    badge: "Need something different?",
+    title: "Get in touch.",
+    subtitle: "We can build a",
+    subtitleHighlight: "simple",
+    subtitleEnd: "solution for you.",
+    cta: "Contact",
+    features: [
+      { icon: "sparkles", title: "Tailored", description: "We design the exact solution your business needs — no unnecessary features, no compromises." },
+      { icon: "bolt", title: "Simple technology", description: "We use the same proven technologies as our products: fast, reliable, and easy to use." },
+      { icon: "handshake", title: "Ongoing support", description: "From idea to launch, and beyond. We're with you every step of the way." },
+    ],
   },
 
   // ── Simple.Order ──
